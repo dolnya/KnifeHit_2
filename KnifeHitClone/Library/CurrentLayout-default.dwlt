@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 139
+  controlID: 62
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 881, y: 492}
   m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 137
+  controlID: 60
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 138
+  controlID: 61
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -343,22 +343,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Shields
+    - Assets/Scripts/SDA.CoreGameplay/ShieldMovement
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Prefabs/Shields
+  - Assets/Scripts/SDA.CoreGameplay/ShieldMovement
   m_LastFoldersGridSize: 96
   m_LastProjectPath: F:\SdaGamedev\KnifeHit_2\KnifeHitClone
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 24}
-    m_SelectedIDs: e6540000
-    m_LastClickedID: 21734
-    m_ExpandedIDs: 0000000060450000684500006e45000070450000a0510000ac510000e8540000ea540000ee540000f2540000fa54000000ca9a3b
+    scrollPos: {x: 0, y: 56}
+    m_SelectedIDs: ba550000
+    m_LastClickedID: 21946
+    m_ExpandedIDs: 00000000a2450000ae450000b4450000ea450000e64600007a4a00003a5c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060450000
+    m_ExpandedIDs: 00000000a2450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -507,20 +507,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e6440000
+      m_SelectedIDs: 4c0e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 7ea1ffff04abffff06abffffbae0ffff46fbffffe4420000004300000e430000264300002e430000664300006a4300007a43000098430000c0430000c4430000ce430000f84300000c44000024440000384400006a44000078440000a6440000ae440000b8440000
+      m_ExpandedIDs: 46fbffff024300005e43000082430000d8430000fa4300001e4400003244000088440000aa440000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: ShieldRoot
-        m_OriginalName: ShieldRoot
+        m_Name: ShieldPos
+        m_OriginalName: ShieldPos
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 17582
+        m_UserData: 17532
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -569,9 +569,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 21.91951, y: 229.5873, z: -85.30804}
+    m_Target: {x: -0.32013825, y: -0.8978578, z: -1.6092788}
     speed: 2
-    m_Value: {x: 21.91951, y: 229.5873, z: -85.30804}
+    m_Value: {x: -0.32013825, y: -0.8978578, z: -1.6092788}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -622,9 +622,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 947.96814
+    m_Target: 2.285475
     speed: 2
-    m_Value: 947.96814
+    m_Value: 2.285475
   m_Ortho:
     m_Target: 1
     speed: 2
