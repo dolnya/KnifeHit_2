@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1098346598243612843}
   - component: {fileID: 5027537590465320295}
   - component: {fileID: 5814191859018315846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SimpleShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
     time: 1
   - angle: 360
     time: 4
+  knivesToWin: 8
   knifesInShield: []
 --- !u!58 &5027537590465320295
 CircleCollider2D:

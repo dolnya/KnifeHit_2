@@ -12,9 +12,9 @@ namespace SDA.Generation
 
         private int currentStep;
 
-        public override void Initialize(UnityAction callback)
+        public override void Initialize(UnityAction onShieldHitCallback, UnityAction onWinCallbakc)
         {
-            base.Initialize(callback);
+            base.Initialize(onShieldHitCallback, onWinCallbakc);
             currentStep = 0;
             var currentStepData = movementScheme[currentStep];
             

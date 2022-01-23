@@ -7,7 +7,10 @@ namespace SDA.CoreGameplay
     {
         private BaseShield currentlyActiveShield;
 
-        public void InitializeShield(BaseShield newShield , UnityAction callback)
+        
+
+        public void InitializeShield(BaseShield newShield , 
+            UnityAction onShieldHitCallback, UnityAction onWinCallback)
         {
             //destroy old shield
             if (currentlyActiveShield != null)
@@ -15,7 +18,7 @@ namespace SDA.CoreGameplay
 
 
             currentlyActiveShield = newShield;
-            currentlyActiveShield.Initialize(callback);
+            currentlyActiveShield.Initialize(onShieldHitCallback, onWinCallback);
         }
 
         public void UpdateController()
