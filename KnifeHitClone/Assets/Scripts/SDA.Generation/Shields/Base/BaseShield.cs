@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace SDA.Generation
 {
@@ -12,23 +13,32 @@ namespace SDA.Generation
         [SerializeField]
         private List<Knife> knifesInShield = new List<Knife>();
 
-        
+        private UnityAction onShieldHit; 
 
-        public abstract void Initialize();
+        public virtual void Initialize(UnityAction callback)
+        {
+            onShieldHit = callback;
+        }
         public abstract void Rotate();
 
+        public virtual void Dispose()
+        {
+            onShieldHit = null;
+        }
+        
 
         public void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log(other.gameObject.name);
 
-            var knife = other.GetComponent<Knife>();
+            var knife = other.GetComponentInParent<Knife>();
             knife.Rigidbody2D.velocity = Vector2.zero;
-
+            knife.Rigidbody2D.isKinematic = true;
             knife.transform.position = new Vector3(0, 0, 0);
             knifesInShield.Add(knife);
             knife.transform.SetParent(this.transform);
 
+            onShieldHit.Invoke();
 
         }
     }

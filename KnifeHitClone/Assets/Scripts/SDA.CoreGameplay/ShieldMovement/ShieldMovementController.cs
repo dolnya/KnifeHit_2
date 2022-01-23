@@ -1,4 +1,5 @@
 using SDA.Generation;
+using UnityEngine.Events;
 
 namespace SDA.CoreGameplay
 {
@@ -6,12 +7,15 @@ namespace SDA.CoreGameplay
     {
         private BaseShield currentlyActiveShield;
 
-        public void InitializeShield(BaseShield newShield)
+        public void InitializeShield(BaseShield newShield , UnityAction callback)
         {
             //destroy old shield
-            
+            if (currentlyActiveShield != null)
+                currentlyActiveShield.Dispose();
+
+
             currentlyActiveShield = newShield;
-            currentlyActiveShield.Initialize();
+            currentlyActiveShield.Initialize(callback);
         }
 
         public void UpdateController()

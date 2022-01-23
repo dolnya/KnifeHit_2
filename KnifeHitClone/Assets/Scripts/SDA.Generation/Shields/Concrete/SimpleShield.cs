@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 namespace SDA.Generation
 {
     public class SimpleShield : BaseShield
@@ -12,8 +12,9 @@ namespace SDA.Generation
 
         private int currentStep;
 
-        public override void Initialize()
+        public override void Initialize(UnityAction callback)
         {
+            base.Initialize(callback);
             currentStep = 0;
             var currentStepData = movementScheme[currentStep];
             
