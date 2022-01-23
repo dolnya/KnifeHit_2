@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using SDA.CoreGameplay;
+using SDA.Generation;
 using SDA.Input;
 using UnityEngine;
 using SDA.UI;
-using SDA.Generation;
+
 
 namespace SDA.Architecture
 {
@@ -14,26 +15,33 @@ namespace SDA.Architecture
         private InputSystem inputSystem;
         private LevelGenerator levelGenerator;
         private ShieldMovementController shieldMovementController;
-
+        private KnifeThrow knifeThrow;
         public GameState(GameView gameView, InputSystem inputSystem,
-            LevelGenerator levelGenerator, ShieldMovementController shieldMovementController)
+            LevelGenerator levelGenerator, ShieldMovementController shieldMovementController,KnifeThrow knifeThrow)
         {
             this.gameView = gameView;
             this.inputSystem = inputSystem;
             this.levelGenerator = levelGenerator;
             this.shieldMovementController = shieldMovementController;
+            this.knifeThrow = knifeThrow;
         }
 
         public override void InitState()
         {
-            if(gameView!=null)
+            if (gameView != null)
+            {
                 gameView.ShowView();
-            
+            }
+            inputSystem.AddListener(knifeThrow.Throw);
             BaseShield startShield = levelGenerator.SpawnShield();
             shieldMovementController.InitializeShield(startShield);
-            
-            levelGenerator.SpawnKnife();
-            inputSystem.AddListener(PrintDebug);
+
+            Knife knife = levelGenerator.SpawnKnife();
+            knifeThrow.SetKnife(knife);
+
+
+            //levelGenerator.SpawnKnife();
+            //inputSystem.AddListener(PrintDebug);
         }
 
         public override void UpdateState()

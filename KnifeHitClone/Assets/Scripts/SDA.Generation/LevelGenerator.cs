@@ -20,7 +20,7 @@ namespace SDA.Generation
         private Transform knifePos;
 
         [SerializeField] 
-        private BaseKnife knifePrefab;
+        private Knife knifePrefab;
 
         [SerializeField] 
         private Transform knifeRoot;
@@ -36,12 +36,14 @@ namespace SDA.Generation
             return shieldObj;
         }
         
-        public void SpawnKnife()
+        public  Knife SpawnKnife()
         {
             var knifeObj = Instantiate(knifePrefab, 
                 knifePos.position, knifePos.rotation);
             
             knifeObj.transform.SetParent(knifeRoot);
+
+            return knifeObj;
         }
     }
 }

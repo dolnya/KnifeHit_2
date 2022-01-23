@@ -28,15 +28,18 @@ namespace SDA.Architecture
 
         private UnityAction toGameStateTransition;
 
+        private KnifeThrow knifeThrow;
+
         private void Start()
         {
             toGameStateTransition = () => ChangeState(gameState);
             
             inputSystem = new InputSystem();
             shieldMovementController = new ShieldMovementController();
-            
+            knifeThrow = new KnifeThrow();
             menuState = new MenuState(toGameStateTransition, menuView);
-            gameState = new GameState(gameView, inputSystem, levelGenerator, shieldMovementController);
+            gameState = new GameState(gameView, inputSystem, levelGenerator, 
+                shieldMovementController, knifeThrow);
             
             ChangeState(menuState);
         }
