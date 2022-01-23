@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 2354306384224845943}
-  speed: 2000
+  speed: 2800
+  Rigidbody2D: {fileID: 2354306384224845943}
 --- !u!60 &366023790166501664
 PolygonCollider2D:
   m_ObjectHideFlags: 0
