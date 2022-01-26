@@ -8,11 +8,12 @@ namespace SDA.Architecture
     {
         private MenuView menuView;
         private UnityAction transitionToGameState;
-
-        public MenuState(UnityAction transitionToGameState, MenuView menuView)
+        private UnityAction settingsStateTransition;
+        public MenuState(UnityAction transitionToGameState, UnityAction settingsStateTransition, MenuView menuView)
         {
             this.menuView = menuView;
             this.transitionToGameState = transitionToGameState;
+            this.settingsStateTransition = settingsStateTransition;
         }
 
         public override void InitState()
@@ -23,6 +24,7 @@ namespace SDA.Architecture
                 menuView.ShowView();
             
             menuView.PlayButton.onClick.AddListener(transitionToGameState);
+            menuView.SettingsButton.onClick.AddListener(settingsStateTransition);
         }
 
         public override void UpdateState()

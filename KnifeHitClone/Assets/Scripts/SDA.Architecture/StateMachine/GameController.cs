@@ -14,6 +14,12 @@ namespace SDA.Architecture
         
         [SerializeField]
         private GameView gameView;
+        [SerializeField]
+        private SettingsView settingsView;
+        [SerializeField]
+        private ShopView shopView;
+        [SerializeField]
+        private EndView endView;
 
         [SerializeField] 
         private LevelGenerator levelGenerator;
@@ -23,23 +29,37 @@ namespace SDA.Architecture
         
         private MenuState menuState;
         private GameState gameState;
-        
+        private SettingsState settingsState;
+        private ShopState shopState;
+        private EndState endState;
+
         private BaseState currentlyActiveState;
 
         private UnityAction toGameStateTransition;
-
+        private UnityAction toSettingsStateTransition;
+        private UnityAction toMenuStateTransition;
+        private UnityAction toShopStateTransition;
+        private UnityAction toEndStateTransition;
         private KnifeThrow knifeThrow;
 
         private void Start()
         {
             toGameStateTransition = () => ChangeState(gameState);
-            
+            toMenuStateTransition = () => ChangeState(menuState);
+            toSettingsStateTransition = () => ChangeState(settingsState);
+            //toShopStateTransition = () => ChangeState(shopState);
+            //toEndStateTransition = () => ChangeState(endState);
+
+
             inputSystem = new InputSystem();
             shieldMovementController = new ShieldMovementController();
             knifeThrow = new KnifeThrow();
-            menuState = new MenuState(toGameStateTransition, menuView);
+            menuState = new MenuState(toGameStateTransition,toSettingsStateTransition, menuView);
             gameState = new GameState(gameView, inputSystem, levelGenerator, 
                 shieldMovementController, knifeThrow);
+            settingsState = new SettingsState(toMenuStateTransition, settingsView);
+            //shopState = new ShopState(toMenuStateTransition, shopView);
+            //endState = new EndState(toMenuStateTransition,endState);
             
             ChangeState(menuState);
         }
