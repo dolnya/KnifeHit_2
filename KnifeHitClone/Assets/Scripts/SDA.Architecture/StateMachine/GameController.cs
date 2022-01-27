@@ -47,19 +47,20 @@ namespace SDA.Architecture
             toGameStateTransition = () => ChangeState(gameState);
             toMenuStateTransition = () => ChangeState(menuState);
             toSettingsStateTransition = () => ChangeState(settingsState);
-            //toShopStateTransition = () => ChangeState(shopState);
-            //toEndStateTransition = () => ChangeState(endState);
+            toShopStateTransition = () => ChangeState(shopState);
+            toEndStateTransition = () => ChangeState(endState);
 
 
             inputSystem = new InputSystem();
             shieldMovementController = new ShieldMovementController();
             knifeThrow = new KnifeThrow();
-            menuState = new MenuState(toGameStateTransition,toSettingsStateTransition, menuView);
+            menuState = new MenuState(toGameStateTransition,toSettingsStateTransition,toShopStateTransition, menuView);
             gameState = new GameState(gameView, inputSystem, levelGenerator, 
-                shieldMovementController, knifeThrow);
+                shieldMovementController, knifeThrow, toEndStateTransition);
+            
             settingsState = new SettingsState(toMenuStateTransition, settingsView);
-            //shopState = new ShopState(toMenuStateTransition, shopView);
-            //endState = new EndState(toMenuStateTransition,endState);
+            shopState = new ShopState(toMenuStateTransition, shopView);
+            endState = new EndState(toMenuStateTransition,endView);
             
             ChangeState(menuState);
         }

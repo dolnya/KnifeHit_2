@@ -5,6 +5,7 @@ using SDA.Generation;
 using SDA.Input;
 using UnityEngine;
 using SDA.UI;
+using UnityEngine.Events;
 
 
 namespace SDA.Architecture
@@ -16,14 +17,17 @@ namespace SDA.Architecture
         private LevelGenerator levelGenerator;
         private ShieldMovementController shieldMovementController;
         private KnifeThrow knifeThrow;
+        private UnityAction transitionToMenuState;
         public GameState(GameView gameView, InputSystem inputSystem,
-            LevelGenerator levelGenerator, ShieldMovementController shieldMovementController,KnifeThrow knifeThrow)
+            LevelGenerator levelGenerator, ShieldMovementController 
+            shieldMovementController,KnifeThrow knifeThrow, UnityAction transitionToMenuState)
         {
             this.gameView = gameView;
             this.inputSystem = inputSystem;
             this.levelGenerator = levelGenerator;
             this.shieldMovementController = shieldMovementController;
             this.knifeThrow = knifeThrow;
+            this.transitionToMenuState = transitionToMenuState;
         }
 
         public override void InitState()

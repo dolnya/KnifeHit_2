@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ShopState : MonoBehaviour
+using SDA.UI;
+using UnityEngine.Events;
+using System;
+namespace SDA.Architecture
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ShopState : BaseState
     {
-        
-    }
+        private ShopView shopView;
+        private UnityAction transitionToMenuState;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public ShopState(UnityAction transitionToMenuState, ShopView shopView)
+        {
+            this.shopView = shopView;
+            this.transitionToMenuState = transitionToMenuState;
+        }
+
+        public override void InitState()
+        {
+            Debug.Log("INIT shop");
+
+            if (shopView != null)
+                shopView.ShowView();
+            shopView.BackShopButton.onClick.AddListener(transitionToMenuState);
+        }
+        public override void UpdateState()
+        {
+            
+        }
+         public override void DestroyState()
+         {
+            if (shopView != null)
+                shopView.HideView();
+
+
+            shopView.BackShopButton.onClick.RemoveAllListeners();
+        }
+       
     }
 }

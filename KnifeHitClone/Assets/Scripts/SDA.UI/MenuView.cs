@@ -7,15 +7,19 @@ namespace SDA.UI
     {
         [SerializeField]
         private Button playButton;
-
         public Button PlayButton => playButton;
+        
         [SerializeField]
         private Button settingsButton;
-
         public Button SettingsButton => settingsButton;
+        
         [SerializeField]
         private Button shopButton;
-
         public Button ShopButton => shopButton;
+
+
+   
+
+    
     }
 }

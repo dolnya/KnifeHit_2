@@ -10,7 +10,7 @@ namespace SDA.UI
         [SerializeField]
         private Button backShopButton;
 
-        public Button PlayButton => backShopButton;
+        public Button BackShopButton => backShopButton;
     }
 }
 
