@@ -11,7 +11,6 @@ namespace SDA.Architecture
     {
         [SerializeField]
         private MenuView menuView;
-        
         [SerializeField]
         private GameView gameView;
         [SerializeField]
@@ -20,20 +19,19 @@ namespace SDA.Architecture
         private ShopView shopView;
         [SerializeField]
         private EndView endView;
-
+        
         [SerializeField] 
         private LevelGenerator levelGenerator;
 
         private InputSystem inputSystem;
         private ShieldMovementController shieldMovementController;
         
+        private BaseState currentlyActiveState;
         private MenuState menuState;
         private GameState gameState;
         private SettingsState settingsState;
         private ShopState shopState;
-        private EndState endState;
-
-        private BaseState currentlyActiveState;
+        private EndState endState;      
 
         private UnityAction toGameStateTransition;
         private UnityAction toSettingsStateTransition;

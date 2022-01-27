@@ -17,17 +17,17 @@ namespace SDA.Architecture
         private LevelGenerator levelGenerator;
         private ShieldMovementController shieldMovementController;
         private KnifeThrow knifeThrow;
-        private UnityAction transitionToMenuState;
+        private UnityAction transitionToEndState;
         public GameState(GameView gameView, InputSystem inputSystem,
             LevelGenerator levelGenerator, ShieldMovementController 
-            shieldMovementController,KnifeThrow knifeThrow, UnityAction transitionToMenuState)
+            shieldMovementController,KnifeThrow knifeThrow, UnityAction transitionToEndState)
         {
             this.gameView = gameView;
             this.inputSystem = inputSystem;
             this.levelGenerator = levelGenerator;
             this.shieldMovementController = shieldMovementController;
             this.knifeThrow = knifeThrow;
-            this.transitionToMenuState = transitionToMenuState;
+            this.transitionToEndState = transitionToEndState;
         }
 
         public override void InitState()
