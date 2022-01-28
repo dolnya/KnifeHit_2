@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 160599664}
   - component: {fileID: 160599663}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4388,8 +4388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e154554d337f71458fe8e02a59d7baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCount: {fileID: 0}
-  currencyCount: {fileID: 0}
+  scoreCount: {fileID: 160599663}
+  currencyCount: {fileID: 1772299485}
 --- !u!1 &1439982894
 GameObject:
   m_ObjectHideFlags: 0
@@ -4905,6 +4905,7 @@ MonoBehaviour:
   shopView: {fileID: 169917853}
   endView: {fileID: 25876842}
   levelGenerator: {fileID: 117045881}
+  scoreclass: {fileID: 1409246850}
 --- !u!1 &1688572800
 GameObject:
   m_ObjectHideFlags: 0

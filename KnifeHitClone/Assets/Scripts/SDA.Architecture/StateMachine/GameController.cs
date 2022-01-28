@@ -3,6 +3,7 @@ using SDA.Generation;
 using SDA.Input;
 using SDA.UI;
 using UnityEngine;
+using SDA.Count;
 using UnityEngine.Events;
 
 namespace SDA.Architecture
@@ -22,6 +23,8 @@ namespace SDA.Architecture
         
         [SerializeField] 
         private LevelGenerator levelGenerator;
+        [SerializeField]
+        private Score scoreclass;
 
         private InputSystem inputSystem;
         private ShieldMovementController shieldMovementController;
@@ -54,7 +57,7 @@ namespace SDA.Architecture
             knifeThrow = new KnifeThrow();
             menuState = new MenuState(toGameStateTransition,toSettingsStateTransition,toShopStateTransition, menuView);
             gameState = new GameState(gameView, inputSystem, levelGenerator, 
-                shieldMovementController, knifeThrow, toEndStateTransition);
+                shieldMovementController, knifeThrow, toEndStateTransition, scoreclass);
             
             settingsState = new SettingsState(toMenuStateTransition, settingsView);
             shopState = new ShopState(toMenuStateTransition, shopView);

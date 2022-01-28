@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using SDA.CoreGameplay;
+using SDA.Count;
 using SDA.Generation;
 using SDA.Input;
 using UnityEngine;
@@ -18,9 +19,10 @@ namespace SDA.Architecture
         private ShieldMovementController shieldMovementController;
         private KnifeThrow knifeThrow;
         private UnityAction transitionToEndState;
+        private Score scoreclass;
         public GameState(GameView gameView, InputSystem inputSystem,
             LevelGenerator levelGenerator, ShieldMovementController 
-            shieldMovementController,KnifeThrow knifeThrow, UnityAction transitionToEndState)
+            shieldMovementController,KnifeThrow knifeThrow, UnityAction transitionToEndState, Score scoreclas)
         {
             this.gameView = gameView;
             this.inputSystem = inputSystem;
@@ -28,6 +30,8 @@ namespace SDA.Architecture
             this.shieldMovementController = shieldMovementController;
             this.knifeThrow = knifeThrow;
             this.transitionToEndState = transitionToEndState;
+            this.scoreclass = scoreclas; 
+            
         }
 
         public override void InitState()
@@ -45,6 +49,7 @@ namespace SDA.Architecture
             //inputSystem.AddListener(knifeThrow.Throw);
             //levelGenerator.SpawnKnife();
             inputSystem.AddListener(PrintDebug);
+            scoreclass.InitScore();
         }
 
         public override void UpdateState()
@@ -77,6 +82,7 @@ namespace SDA.Architecture
             var newShield = levelGenerator.SpawnShield();
             shieldMovementController.InitializeShield(newShield, PrepareNewKnife, PrepareNewShield);
             Debug.Log("Nowa tarcza");
+            scoreclass.UpdateScore(); 
 
         }
     }
