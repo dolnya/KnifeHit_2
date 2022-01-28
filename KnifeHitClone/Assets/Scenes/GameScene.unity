@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 160599664}
   - component: {fileID: 160599663}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1056,16 +1056,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160599661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3854017, y: 1.3854017, z: 1.3854017}
+  m_LocalScale: {x: 1.3854018, y: 1.3854018, z: 1.3854018}
   m_Children: []
-  m_Father: {fileID: 1882691605}
+  m_Father: {fileID: 1372878915}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 123, y: -96.8}
+  m_AnchoredPosition: {x: -907, y: -96.8}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &160599663
@@ -2387,7 +2387,7 @@ GameObject:
   - component: {fileID: 668610969}
   - component: {fileID: 668610968}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CurrencyMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4314,6 +4314,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358027663}
   m_CullTransparentMesh: 1
+--- !u!1 &1372878914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372878915}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1372878915
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372878914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 160599662}
+  m_Father: {fileID: 1882691605}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1392781731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,8 +4424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e154554d337f71458fe8e02a59d7baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreCount: {fileID: 160599663}
-  currencyCount: {fileID: 1772299485}
+  scoreCountMenu: {fileID: 2111013432}
+  scoreCountGame: {fileID: 160599663}
+  currencyCountMenu: {fileID: 668610968}
+  currencyCountGame: {fileID: 1772299485}
+  currencyCountShop: {fileID: 1877861614}
 --- !u!1 &1439982894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,7 +5447,7 @@ GameObject:
   - component: {fileID: 1772299486}
   - component: {fileID: 1772299485}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CurrencyGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5874,7 +5913,7 @@ GameObject:
   - component: {fileID: 1877861615}
   - component: {fileID: 1877861614}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CurrencyShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6025,7 +6064,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 160599662}
+  - {fileID: 1372878915}
   - {fileID: 761281051}
   - {fileID: 1843840651}
   m_Father: {fileID: 1983165239}

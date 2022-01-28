@@ -49,7 +49,8 @@ namespace SDA.Architecture
             //inputSystem.AddListener(knifeThrow.Throw);
             //levelGenerator.SpawnKnife();
             inputSystem.AddListener(PrintDebug);
-            scoreclass.InitScore();
+            
+            
         }
 
         public override void UpdateState()
@@ -75,14 +76,14 @@ namespace SDA.Architecture
             var newKnife = levelGenerator.SpawnKnife();
             knifeThrow.SetKnife(newKnife);
             Debug.Log("Nowy nóŸ");
-            
+            scoreclass.UpdateScore();
         }
         private void PrepareNewShield()
         {
             var newShield = levelGenerator.SpawnShield();
             shieldMovementController.InitializeShield(newShield, PrepareNewKnife, PrepareNewShield);
             Debug.Log("Nowa tarcza");
-            scoreclass.UpdateScore(); 
+            
 
         }
     }

@@ -64,6 +64,8 @@ namespace SDA.Architecture
             endState = new EndState(toMenuStateTransition,endView);
             
             ChangeState(menuState);
+            scoreclass.InitCurrency();
+            scoreclass.InitScore();
         }
 
         private void Update()
