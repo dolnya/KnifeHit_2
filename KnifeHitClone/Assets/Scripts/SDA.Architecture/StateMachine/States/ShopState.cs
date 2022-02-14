@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using SDA.UI;
+using UnityEngine;
 using UnityEngine.Events;
-using System;
 namespace SDA.Architecture
 {
     public class ShopState : BaseState
@@ -27,16 +24,16 @@ namespace SDA.Architecture
         }
         public override void UpdateState()
         {
-            
+
         }
-         public override void DestroyState()
-         {
+        public override void DestroyState()
+        {
             if (shopView != null)
                 shopView.HideView();
 
 
             shopView.BackShopButton.onClick.RemoveAllListeners();
         }
-       
+
     }
 }

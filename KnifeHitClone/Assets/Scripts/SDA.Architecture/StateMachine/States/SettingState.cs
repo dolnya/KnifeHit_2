@@ -1,10 +1,6 @@
-using SDA.CoreGameplay;
-using SDA.Generation;
-using SDA.Input;
-using UnityEngine;
 using SDA.UI;
+using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 namespace SDA.Architecture
 {
@@ -28,7 +24,7 @@ namespace SDA.Architecture
         }
         public override void UpdateState()
         {
-            
+
         }
         public override void DestroyState()
         {

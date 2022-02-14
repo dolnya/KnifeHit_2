@@ -16,7 +16,7 @@ namespace SDA.Input
         {
             onClick = null;
         }
-        
+
         public void UpdateSystem()
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space)

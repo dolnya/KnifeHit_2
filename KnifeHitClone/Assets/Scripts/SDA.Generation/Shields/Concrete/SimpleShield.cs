@@ -17,7 +17,7 @@ namespace SDA.Generation
             base.Initialize(onShieldHitCallback, onWinCallbakc);
             currentStep = 0;
             var currentStepData = movementScheme[currentStep];
-            
+
             startTime = Time.time;
             duration = currentStepData.time;
             currentNormalizedTime = 0f;
@@ -34,9 +34,9 @@ namespace SDA.Generation
                 currentStep++;
                 if (currentStep == movementScheme.Length)
                     currentStep = 0;
-                
+
                 var currentStepData = movementScheme[currentStep];
-                
+
                 startTime = Time.time;
                 duration = currentStepData.time;
                 currentNormalizedTime = 0f;

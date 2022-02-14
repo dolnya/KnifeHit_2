@@ -7,9 +7,9 @@ namespace SDA.CoreGameplay
     {
         private BaseShield currentlyActiveShield;
 
-        
 
-        public void InitializeShield(BaseShield newShield , 
+
+        public void InitializeShield(BaseShield newShield,
             UnityAction onShieldHitCallback, UnityAction onWinCallback)
         {
             //destroy old shield
@@ -23,7 +23,7 @@ namespace SDA.CoreGameplay
 
         public void UpdateController()
         {
-            if(currentlyActiveShield != null)
+            if (currentlyActiveShield != null)
                 currentlyActiveShield.Rotate();
         }
     }

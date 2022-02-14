@@ -1,9 +1,9 @@
 using SDA.CoreGameplay;
+using SDA.Count;
 using SDA.Generation;
 using SDA.Input;
 using SDA.UI;
 using UnityEngine;
-using SDA.Count;
 using UnityEngine.Events;
 
 namespace SDA.Architecture
@@ -20,21 +20,23 @@ namespace SDA.Architecture
         private ShopView shopView;
         [SerializeField]
         private EndView endView;
-        
-        [SerializeField] 
+
+        [SerializeField]
         private LevelGenerator levelGenerator;
         [SerializeField]
         private Score scoreclass;
 
         private InputSystem inputSystem;
         private ShieldMovementController shieldMovementController;
-        
+
         private BaseState currentlyActiveState;
         private MenuState menuState;
         private GameState gameState;
         private SettingsState settingsState;
         private ShopState shopState;
-        private EndState endState;      
+        private EndState endState;
+
+        private StageController stageController;
 
         private UnityAction toGameStateTransition;
         private UnityAction toSettingsStateTransition;
@@ -51,18 +53,21 @@ namespace SDA.Architecture
             toShopStateTransition = () => ChangeState(shopState);
             toEndStateTransition = () => ChangeState(endState);
 
-
+            stageController = new StageController();
             inputSystem = new InputSystem();
             shieldMovementController = new ShieldMovementController();
             knifeThrow = new KnifeThrow();
-            menuState = new MenuState(toGameStateTransition,toSettingsStateTransition,toShopStateTransition, menuView);
-            gameState = new GameState(gameView, inputSystem, levelGenerator, 
-                shieldMovementController, knifeThrow, toEndStateTransition, scoreclass);
-            
+            menuState = new MenuState(toGameStateTransition, toSettingsStateTransition,
+                toShopStateTransition, menuView);
+            gameState = new GameState(gameView, inputSystem, levelGenerator,
+                shieldMovementController, knifeThrow, toEndStateTransition,
+                scoreclass, stageController);
+
             settingsState = new SettingsState(toMenuStateTransition, settingsView);
             shopState = new ShopState(toMenuStateTransition, shopView);
-            endState = new EndState(toMenuStateTransition,endView);
-            
+            endState = new EndState(toMenuStateTransition, endView, toGameStateTransition,
+                stageController);
+
             ChangeState(menuState);
             scoreclass.InitCurrency();
             scoreclass.InitScore();
@@ -75,7 +80,7 @@ namespace SDA.Architecture
 
         private void OnDestroy()
         {
-            
+
         }
 
         private void ChangeState(BaseState newState)

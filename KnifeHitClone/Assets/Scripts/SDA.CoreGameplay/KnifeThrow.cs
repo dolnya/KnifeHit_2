@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using SDA.Generation;
-using UnityEngine;
 
 namespace SDA.CoreGameplay
 {
-    public class KnifeThrow : MonoBehaviour
+    public class KnifeThrow
     {
         private Knife knifeToThrow;
 
-       public void SetKnife(Knife newKnife)
+        public void SetKnife(Knife newKnife)
         {
-            this.knifeToThrow = newKnife; 
+            this.knifeToThrow = newKnife;
 
         }
 
@@ -20,13 +17,13 @@ namespace SDA.CoreGameplay
             if (knifeToThrow != null)
             {
 
-                knifeToThrow.ThrowKnife(knifeToThrow);
-                knifeToThrow=null; 
+                knifeToThrow.ThrowKnife();
+                knifeToThrow = null;
             }
-            }
-
-
         }
+
+
+    }
 
 
 }

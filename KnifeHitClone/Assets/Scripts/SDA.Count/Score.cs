@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 namespace SDA.Count
 {
     public class Score : MonoBehaviour
@@ -16,9 +14,9 @@ namespace SDA.Count
         public TextMeshProUGUI currencyCountGame;
         [SerializeField]
         public TextMeshProUGUI currencyCountShop;
-        int score; 
+        int score;
         int currency;
-        
+
         public void InitScore()
         {
             score = 0;
@@ -29,7 +27,7 @@ namespace SDA.Count
         public void InitCurrency()
         {
             currency = 0;
-            currencyCountMenu.text = $"SCORE {currency}";
+            currencyCountMenu.text = $"{currency}";
             currencyCountGame.text = $"{currency}";
             currencyCountShop.text = $"{currency}";
             Debug.Log(score.ToString());

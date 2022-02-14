@@ -1,27 +1,28 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 namespace SDA.Generation
 {
     public abstract class BaseShield : MonoBehaviour
     {
-        [SerializeField]
-        protected ShieldMovementStep[] movementScheme;
-
+        private UnityAction onShieldHit;
+        private UnityAction onWin;
 
         [SerializeField]
         private int knivesToWin;
+        public int KnifesToWin => knivesToWin;
 
+        [SerializeField]
+        protected ShieldMovementStep[] movementScheme;
 
         [SerializeField]
         private List<Knife> knifesInShield = new List<Knife>();
 
-        private UnityAction onShieldHit;
-        private UnityAction onWin;
 
-        public virtual void Initialize(UnityAction onShieldHitCallback, UnityAction onWinCallback
+
+        public virtual void Initialize(UnityAction onShieldHitCallback,
+            UnityAction onWinCallback
             )
         {
             onShieldHit = onShieldHitCallback;
@@ -31,7 +32,7 @@ namespace SDA.Generation
 
         public virtual void Dispose()
         {
-            for (int i= knifesInShield.Count -1; i>=0; i--)
+            for (int i = knifesInShield.Count - 1; i >= 0; i--)
             {
                 var knife = knifesInShield[i];
                 Destroy(knife);
@@ -42,9 +43,9 @@ namespace SDA.Generation
             onWin = null;
             Destroy(this.gameObject);
         }
-        
 
-        public void OnTriggerEnter2D(Collider2D other)
+
+        /*public void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log(other.gameObject.name);
                         
@@ -69,6 +70,23 @@ namespace SDA.Generation
             //    Debug.Log(other.gameObject.name);
             //    onShieldHit.Invoke();
             //}
+        }
+        */
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            var knife = other.GetComponentInParent<Knife>();
+            knife.Rigidbody2D.velocity = Vector2.zero;
+            knife.Rigidbody2D.isKinematic = true;
+            knife.transform.position = new Vector3(0f, 0f, 0f);
+            knifesInShield.Add(knife);
+            knife.transform.SetParent(this.transform);
+            onShieldHit.Invoke();
+            knife.Deinit();
+
+            if (knifesInShield.Count == knivesToWin)
+            {
+                onWin.Invoke();
+            }
         }
     }
 }

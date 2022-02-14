@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using SDA.Generation;
 using SDA.UI;
+using UnityEngine;
 using UnityEngine.Events;
-using System;
+
 namespace SDA.Architecture
 {
     public class EndState : BaseState
     {
         private EndView endView;
+        private StageController stageController;
         private UnityAction transitionToMenuState;
+        private UnityAction transitionToGameState;
 
-        public EndState(UnityAction transitionToMenuState, EndView endView)
+        public EndState(UnityAction transitionToMenuState, EndView endView,
+            UnityAction transitionToGameState, StageController stageController)
         {
             this.endView = endView;
             this.transitionToMenuState = transitionToMenuState;
+            this.stageController = stageController;
+            this.transitionToGameState = transitionToGameState;
         }
 
         public override void InitState()
@@ -23,7 +27,10 @@ namespace SDA.Architecture
 
             if (endView != null)
                 endView.ShowView();
-            endView.BackEndButton.onClick.AddListener(transitionToMenuState);
+            endView.RestartButton.onClick.AddListener(transitionToMenuState);
+            endView.MenuButton.onClick.AddListener(transitionToGameState);
+            //endView.UpdatePointsAndStage(Score.CurrentPoints, stageController.CurrentStage);
+
         }
         public override void UpdateState()
         {
@@ -31,11 +38,14 @@ namespace SDA.Architecture
         }
         public override void DestroyState()
         {
+            endView.RestartButton.onClick.RemoveAllListeners();
+            endView.MenuButton.onClick.RemoveAllListeners();
+
             if (endView != null)
                 endView.HideView();
 
 
-            endView.BackEndButton.onClick.RemoveAllListeners();
+            endView.RestartButton.onClick.RemoveAllListeners();
         }
 
     }
