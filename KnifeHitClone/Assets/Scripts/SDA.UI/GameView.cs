@@ -32,6 +32,7 @@ namespace SDA.UI
             for (int i = 0; i < amount; ++i)
             {
                 var newKnife = Instantiate(knifeAmmoPrefab, knifeElementContent);
+                
                 spawnedKnifes.Add(newKnife);
                 newKnife.MarkAsUnlocked();
             }

@@ -354,7 +354,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50647439}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7454,6 +7454,26 @@ PrefabInstance:
     - target: {fileID: 7228043210503486360, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
       propertyPath: m_Name
       value: ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228043210503486360, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228043210503486362, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228043210503486362, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228043210503486362, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228043210503486362, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7228043210503486363, guid: 457e9021edf97ec4aac04681cc763f9d, type: 3}
       propertyPath: m_Pivot.x

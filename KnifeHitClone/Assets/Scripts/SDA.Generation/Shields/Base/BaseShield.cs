@@ -32,9 +32,10 @@ namespace SDA.Generation
 
         public virtual void Dispose()
         {
-            for (int i = knifesInShield.Count - 1; i >= 0; i--)
+            for (int i = knifesInShield.Count ; i >= 0; i--)
             {
                 var knife = knifesInShield[i];
+
                 Destroy(knife);
                 knifesInShield.Remove(knife);
             }
